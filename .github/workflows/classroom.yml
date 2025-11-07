@@ -27,18 +27,15 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: week2task2
-
         setup-command: pip install pytest pandas scipy scikit-learn
         command: pytest grade_task2.py
         timeout: 5
         max-score: 1
-
     - name: week2task3
       id: week2task3
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: week2task3
-
         setup-command: pip install pytest pandas scipy scikit-learn
         command: pytest grade_task3.py
         timeout: 5
@@ -46,10 +43,8 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-
         WEEK2TASK1_RESULTS: "${{steps.week2task1.outputs.result}}"
         WEEK2TASK2_RESULTS: "${{steps.week2task2.outputs.result}}"
         WEEK2TASK3_RESULTS: "${{steps.week2task3.outputs.result}}"
       with:
         runners: week2task1,week2task2,week2task3
-
